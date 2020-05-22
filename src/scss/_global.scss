@@ -1,0 +1,247 @@
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #fefefe;
+  overflow: hidden!important;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 400
+}
+
+body .wrapper {
+  position: relative;
+  width: 100vw
+}
+
+body.noScroll {
+  overflow: hidden
+}
+
+body.noScroll .wrapper {
+  overflow: hidden
+}
+
+#randsImages {
+  display: none
+}
+
+section.randomPage {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+section.randomPage .randoms {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3
+}
+
+section.randomPage .randoms .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white
+}
+
+section.randomPage .randoms canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1
+}
+
+section.randomPage .randoms .images {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1
+}
+
+section.randomPage .randoms .images .img {
+  position: absolute;
+  left: 0;
+  top: 0
+}
+
+section.randomPage .randoms .images .img img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 300px;
+  max-height: 300px;
+  height: auto;
+  width: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
+}
+
+@media screen and (max-width:1024px) {
+  section.randomPage .listContainer {
+      max-height: calc(100vh - 60px);
+      width: calc(50% - 27px);
+      padding: 0;
+      padding-right: 13px
+  }
+  section.randomPage .listContainer .listContent .project {
+      height: 30px;
+      line-height: 30px;
+      font-size: 15px
+  }
+  section.randomPage .listContainer .listContent .project .count {
+      position: absolute;
+      right: 0;
+      width: 85px;
+      text-align: right
+  }
+  section.randomPage .listContainer .listContent .project .name {
+      font-size: 15px
+  }
+  section.randomPage .thumbsContainer {
+      left: calc(25vw)
+  }
+  section.randomPage .thumbsContainer img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      max-height: 500px;
+      height: auto;
+      max-width: calc(50vw - 60px);
+      width: auto;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+  }
+}
+
+@media screen and (max-width:990px) {
+  section.randomPage .listContainer {
+      left: 20px;
+      margin-top: 10px;
+      max-height: calc(100vh - 200px);
+      width: calc(100% - 27px)
+  }
+  body.iphone section.randomPage .listContainer {
+      max-height: calc(100vh - 200px)
+  }
+  section.randomPage .listContainer .listContent {
+      max-height: calc(100vh - 200px)
+  }
+  body.iphone section.randomPage .listContainer .listContent {
+      max-height: calc(100vh - 200px)
+  }
+  section.randomPage .listContainer .listContent .project {
+      height: 30px;
+      line-height: 30px;
+      font-size: 13px
+  }
+  section.randomPage .listContainer .listContent .project .count {
+      width: 30px
+  }
+  section.randomPage .listContainer .listContent .project .cat {
+      display: none!important
+  }
+  section.randomPage .listContainer .listContent .project .name {
+      font-size: 13px
+  }
+  section.randomPage .thumbsContainer {
+      display: none!important
+  }
+}
+
+#title {
+  color: $black;
+  margin: 1em 5vw;
+  pointer-events: all;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+#content {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+  color: $black;
+  z-index: 10;
+  pointer-events: none;
+  
+  a {
+    pointer-events: all;
+    color: $black;
+  }
+  .container {
+    display: none;
+    opacity: 0;
+    background-color: $white;
+    pointer-events: none;
+    transition: 100ms;
+    padding: 5vw;
+    @media screen and (min-width:450px) {
+      padding: 3em;
+    }
+    max-width: 450px;
+    margin: 5vw;
+    &.active {
+      display: inline-block;
+      opacity: 1;
+    }
+    &:hover {
+      background-color: $white;
+    }
+    @media (hover: none) {
+      background-color: $white;
+      pointer-events: none;
+    }
+    .headers {
+      margin: 0.5rem 0 1rem 0;
+    }
+    .header {
+      p {display: inline;}
+      cursor: pointer;
+      pointer-events: all;
+      margin-bottom: 0;
+      &.active {
+        font-weight: 600;
+      }
+    }
+    .content {
+      opacity: 0;
+      transition: 800ms;
+      height: 0;
+      overflow: hidden;
+      &.active {
+        opacity: 1;
+        height: auto;
+      }
+      p {
+        opacity: 0.6;
+      }
+    }
+  }
+}
